@@ -1,0 +1,22 @@
+#!/bin/bash
+clear
+echo "Qual o valor total da venda: "
+read val
+
+echo "Escolha o tipo de desconto"
+echo "1) desconto:20% e comissão:6%"
+echo "2) desconto:22% e comissão:4%"
+echo "3) desconto:24% e comissão:2%"
+echo "outros) desconto:18% e comissão:8%"
+read opc
+
+
+case $opc in
+        "1") des=$((- $val / 100 * 20  + $val)) && com=$(($val / 100 * 6));;
+        "2") des=$((- $val / 100 * 22  + $val)) && com=$(($val / 100 * 4));;
+        "3") des=$((- $val / 100 * 24  + $val)) && com=$(($val / 100 * 2));;
+        *) des=$(( - $val / 100 * 18  + $val)) && com=$(($val / 100 * 8))
+esac
+
+clear
+echo "O valor da compra com desconto é de $des e sua comissão será de $com"
